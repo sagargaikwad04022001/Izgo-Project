@@ -51,7 +51,7 @@ public class ReviewService {
 			}
 			throw new IdNotFoundException("User id "+uid+" not exist in database");
 		}
-		throw new IdNotFoundException("Vehicle id "+vid+" not exist in database");
+		throw new IdNotFoundException("Vehicle id "+vid+" is not exist in database");
 	}
 	
 	public ResponseEntity<ResponseStructure<Review>> getReviewById(int id)
