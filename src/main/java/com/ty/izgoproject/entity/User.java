@@ -32,9 +32,9 @@ public class User {
 	private long Phone;
 	private String licenseNo;
 	private UserRole role;
-	@OneToMany(mappedBy = "user")
+	@OneToMany(mappedBy = "user",cascade = CascadeType.REMOVE)
 	private List<Vehicle> vehicles;
-	@OneToMany(mappedBy = "user")
+	@OneToMany(mappedBy = "user",cascade = CascadeType.REMOVE)
 	private List<Booking> bookings;
 	@OneToOne(cascade = CascadeType.ALL)
 	private Address address;

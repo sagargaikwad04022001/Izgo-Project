@@ -25,6 +25,6 @@ public class AddressController {
 	@PutMapping("address/{uid}")
 	public ResponseEntity<ResponseStructure<Address>> updateAddress(@PathVariable int uid,@RequestBody Address address)
 	{
-		return service.updateAddress(uid,address);
+		return service.updateAddress(address,uid);
 	}
 }
