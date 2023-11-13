@@ -12,6 +12,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -31,12 +32,6 @@ public class User {
 	private String password;
 	private long Phone;
 	private String licenseNo;
-	private UserRole role;
-	@OneToMany(mappedBy = "user",cascade = CascadeType.REMOVE)
-	private List<Vehicle> vehicles;
-	@OneToMany(mappedBy = "user",cascade = CascadeType.REMOVE)
-	private List<Booking> bookings;
-	@OneToOne(cascade = CascadeType.ALL)
-	private Address address;
+	private String role;
 	
 }
