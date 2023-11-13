@@ -1,7 +1,10 @@
 package com.ty.izgoproject.entity;
 
+
+
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,16 +13,15 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-
-import lombok.Data;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
 @Entity
 @Getter
 @Setter
-
 public class Vehicle {
 
 	@Id
@@ -32,5 +34,12 @@ public class Vehicle {
 	private String engineType;
 	@Column(nullable = false,unique = true)
 	private String vehicleNo;
+	@OneToMany(mappedBy = "vehicle",cascade = CascadeType.REMOVE)
+	private List<Review> reviews;
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User user;
+	@OneToMany(mappedBy = "vehicle",cascade = CascadeType.REMOVE)
+	private List<Booking> bookings;
 	
 }

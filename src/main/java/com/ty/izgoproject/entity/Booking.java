@@ -1,6 +1,8 @@
 package com.ty.izgoproject.entity;
 
-import java.util.List;
+
+import com.ty.izgoproject.entity.User;
+import com.ty.izgoproject.entity.Vehicle;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -8,8 +10,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -31,5 +31,11 @@ public class Booking {
 	private double initialDistance;
 	private double finalDistance;
 	private String status;
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User user;
+	@ManyToOne
+	@JoinColumn(name = "vehicle_id")
+	private  Vehicle vehicle;
 	
 }

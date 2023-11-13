@@ -10,8 +10,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -29,6 +27,10 @@ public class Review {
 	private double rating;
 	@CreationTimestamp
 	private LocalDateTime createdDateTime;
-	
+	@ManyToOne
+	private User user;
+	@ManyToOne
+	@JoinColumn(name = "vehicle_id")
+	private Vehicle vehicle;
 
 }
