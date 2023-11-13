@@ -1,10 +1,12 @@
 package com.ty.izgoproject.dao;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.ty.izgoproject.entity.User;
 import com.ty.izgoproject.entity.Vehicle;
 import com.ty.izgoproject.repository.VehicleRepository;
 @Repository
@@ -35,9 +37,13 @@ public class VehicleDao {
 	}
 	public Vehicle findVehicleByVehicleNo(String vehicleNo) {
 		Vehicle vehicle =vehicleRepository.findByVehicleNo(vehicleNo);
-		if (vehicle!=null) {
-			return vehicle;
-		}
-		return null;
+		return vehicle;
+	}
+	public User findUserByVehicle(Vehicle vehicle) {
+		User user=vehicle.getUser();
+		return user;
+	}
+	public List<Vehicle> displayAllVehicle(){
+		return vehicleRepository.findAll();
 	}
 }
