@@ -2,6 +2,7 @@ package com.ty.izgoproject.entity;
 
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -30,12 +31,12 @@ public class User {
 	private String password;
 	private long Phone;
 	private String licenseNo;
-	private String role;
+	private UserRole role;
 	@OneToMany(mappedBy = "user")
 	private List<Vehicle> vehicles;
-	@OneToMany(mappedBy = "user_id")
+	@OneToMany(mappedBy = "user")
 	private List<Booking> bookings;
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private Address address;
 	
 }

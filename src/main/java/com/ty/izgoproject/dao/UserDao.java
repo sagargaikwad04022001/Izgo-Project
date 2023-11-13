@@ -1,9 +1,12 @@
 package com.ty.izgoproject.dao;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.ty.izgoproject.entity.User;
+import com.ty.izgoproject.entity.UserRole;
 import com.ty.izgoproject.repository.UserRepository;
 
 @Repository
@@ -49,5 +52,10 @@ public class UserDao {
 			return user;
 		}
 		return null;
+	}
+
+	public List<User> getUserByRole(UserRole role2) {
+		List<User> user=repository.findByRole(role2);
+		return user;
 	}
 }

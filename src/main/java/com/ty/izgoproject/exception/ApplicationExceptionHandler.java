@@ -31,4 +31,14 @@ public class ApplicationExceptionHandler extends ResponseEntityExceptionHandler 
 		return new ResponseEntity<ResponseStructure<String>>(rs,HttpStatus.NO_CONTENT);
 	}
 	
+	@ExceptionHandler(BookingsNotExistException.class)
+	public ResponseEntity<ResponseStructure<String>> catchBookingsException(BookingsNotExistException exception)
+	{
+		ResponseStructure<String> rs=new ResponseStructure<>();
+		rs.setMsg("Data Not Found");
+		rs.setData(exception.getMessage());
+		rs.setStatusCode(HttpStatus.NO_CONTENT.value());
+		return new ResponseEntity<ResponseStructure<String>>(rs,HttpStatus.NO_CONTENT);
+	}
+	
 }
