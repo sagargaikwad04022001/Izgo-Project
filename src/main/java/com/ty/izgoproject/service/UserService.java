@@ -34,7 +34,7 @@ public class UserService {
 			return new ResponseEntity<ResponseStructure<User>>(new ResponseStructure<User>("Data Found",HttpStatus.FOUND.value() , user),
 					HttpStatus.FOUND);
 		}
-		throw new IdNotFoundException("User Id:" + id + " Not Exist");
+		throw new IdNotFoundException("User Id:" + id+ " Not Exist");
 	}
 
 	public ResponseEntity<ResponseStructure<User>> updateUser(User user) {
@@ -42,7 +42,6 @@ public class UserService {
 		return new ResponseEntity<ResponseStructure<User>>(new ResponseStructure<User>("Data Updated",HttpStatus.OK.value() , user2),
 				HttpStatus.OK);
 	}
-
 	public ResponseEntity<ResponseStructure> deleteUserById(int id) {
 		
 		boolean result=dao.removeUser(id);
